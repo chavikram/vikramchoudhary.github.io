@@ -734,6 +734,7 @@ observer.observe(section);
 });
 
 /* Feedback form */
+  <script>
 
 document.getElementById("feedbackForm").addEventListener("submit", function(e){
 
@@ -750,9 +751,20 @@ feedback: document.getElementById("feedbackText").value
 })
 
 })
-.then(res => res.json())
+.then(res => res.text())
 .then(data => {
-document.getElementById("msg").innerHTML="Feedback submitted successfully";
+
+document.getElementById("msg").innerHTML="Details submitted successfully.";
+
+document.getElementById("feedbackForm").reset();
+
+setTimeout(()=>{
+document.getElementById("msg").innerHTML="";
+},5000);
+
+})
+.catch(error=>{
+document.getElementById("msg").innerHTML="Submission failed.";
 });
 
 });
