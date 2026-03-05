@@ -189,7 +189,9 @@ transform:translateY(0);
 </head>
 
 <body>
-
+<div id="loader" style="display:none;">
+⏳ Submitting...
+</div>
 <header>
 <h1>Vikram Chaudhary</h1>
 <p>Scientist | Government of India | Digital Governance Enthusiast</p>
@@ -332,10 +334,13 @@ observer.observe(section);
 });
 
 /* Feedback form submission */
-
 document.getElementById("feedbackForm").addEventListener("submit", function(e){
 
 e.preventDefault();
+
+/* show loader */
+document.getElementById("loader").style.display="block";
+document.getElementById("msg").innerHTML="";
 
 fetch("https://script.google.com/macros/s/AKfycbyfvgoqgrE4FITnKsW7CmhrTOfOLiyZY1tN_IsxJ6Vx2hUQiOm734YEZthV033dpadV4g/exec", {
 
@@ -344,13 +349,16 @@ method: "POST",
 body: JSON.stringify({
 name: document.getElementById("name").value,
 email: document.getElementById("email").value,
-  mobile: document.getElementById("mobile").value,
+mobile: document.getElementById("mobile").value,
 feedback: document.getElementById("feedbackText").value
 })
 
 })
 .then(res => res.text())
 .then(data => {
+
+/* hide loader */
+document.getElementById("loader").style.display="none";
 
 document.getElementById("msg").innerHTML="Details submitted successfully.";
 
@@ -362,11 +370,15 @@ document.getElementById("msg").innerHTML="";
 
 })
 .catch(error=>{
+
+/* hide loader */
+document.getElementById("loader").style.display="none";
+
 document.getElementById("msg").innerHTML="Submission failed. Please try again.";
-});
 
 });
 
+});
 </script>
 
 </body>
