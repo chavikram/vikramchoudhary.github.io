@@ -22,13 +22,29 @@ line-height:1.6;
 }
 
 /* HEADER */
-
 header{
 background:#0f5132;
 color:white;
-padding:40px 20px;
-text-align:center;
+padding:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
 animation:fadeDown 1s ease;
+}
+
+.header-logo{
+position:absolute;
+left:20px;
+top:0;
+bottom:0;
+display:flex;
+align-items:center;
+}
+
+.header-logo img{
+height:100%;
+max-height:90px;
 }
 
 /* NAV */
@@ -176,17 +192,24 @@ transform:translateY(0);
 
 <header>
 
+<div class="header-logo">
+<img src="logo.png" alt="GarudSpray Logo">
+</div>
+
 <div style="position:absolute; top:15px; right:20px;">
 <a href="index_hindi.html" style="color:white; text-decoration:none; font-weight:bold;">
 Hindi Version
 </a>
 </div>
+
+<div style="text-align:center;">
 <h1>Drone Agriculture Spraying Service</h1>
 
-<p>
-Modern Farming Solutions using Agricultural Drones
-</p>
-<h3>( Contact: garudspray@gmail.com ) </h3>
+<p>Modern Farming Solutions using Agricultural Drones</p>
+
+<h3>( Contact: garudspray@gmail.com )</h3>
+</div>
+
 <a href="https://www.whatsapp.com/channel/0029VbChaBm90x2tklLDw11s"
 target="_blank"
 style="
@@ -204,9 +227,8 @@ z-index:999;
 ">
 📢 Join Our WhatsApp Channel for Updates
 </a>
-</header>
 
-<nav>
+</header> <nav>
 
 <ul>
 
